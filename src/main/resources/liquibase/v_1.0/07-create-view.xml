@@ -1,0 +1,13 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet id="V_USER_VIEW" author="obhohach" runAlways="true" runOnChange="true">
+        <createView viewName="V_USER_VIEW" replaceIfExists="true">
+            SELECT public."user".id as user_id, public."user".name as user_name, string_agg(r.name, ',') as role_names
+            FROM "user"
+                     JOIN user_role ur ON "user".id = ur.id_user
+                     JOIN role r ON ur.id_role = r.id
+            group by public."user".id;
+        </createView>
+    </changeSet>
+</databaseChangeLog>

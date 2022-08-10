@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet id="media" author="obhohach">
+
+        <createTable tableName="media" remarks="Медиа файлы">
+            <column name="id" type="VARCHAR(128)" remarks="Идентификатор медиаресурса">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR" remarks="Имя файла">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path" type="VARCHAR" remarks="Путь к файлу">
+                <constraints nullable="false"/>
+            </column>
+            <column name="size_in_bytes" type="BIGINT" remarks="Размер файла">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_time" type="TIMESTAMP" remarks="Время создания">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delete_time" type="TIMESTAMP" remarks="Время удаления"/>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

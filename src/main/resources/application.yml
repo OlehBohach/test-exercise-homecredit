@@ -1,0 +1,22 @@
+app:
+  default-schema: public
+spring:
+  jpa:
+    open-in-view: false
+    hibernate.ddl-auto: validate
+    show-sql: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  datasource:
+    url: jdbc:postgresql://172.17.0.4:5432/test-exercise
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+    password: 123
+  liquibase:
+    changeLog: classpath:/liquibase/db.changelog-master.xml
+    default-schema: ${app.default-schema}
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    enabled: true

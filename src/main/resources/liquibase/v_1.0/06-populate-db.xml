@@ -1,0 +1,8 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <changeSet id="db population" author="obhohach">
+        <loadData tableName="user" file="liquibase/v_1.0/populate/user.csv" separator=";"/>
+        <loadData tableName="role" file="liquibase/v_1.0/populate/role.csv" separator=";"/>
+    </changeSet>
+</databaseChangeLog>
