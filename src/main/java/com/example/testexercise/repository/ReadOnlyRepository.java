@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @NoRepositoryBean
-public interface ReadOnlyRepository <T, ID> extends Repository<T, ID> {
+public interface ReadOnlyRepository<T, ID> extends Repository<T, ID> {
     List<T> findAll();
 
     List<T> findAll(Sort sort);

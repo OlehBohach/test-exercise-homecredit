@@ -14,10 +14,10 @@
             <column name="size_in_bytes" type="BIGINT" remarks="Размер файла">
                 <constraints nullable="false"/>
             </column>
-            <column name="create_time" type="TIMESTAMP" remarks="Время создания">
+            <column name="time_create" type="TIMESTAMP" remarks="Время создания">
                 <constraints nullable="false"/>
             </column>
-            <column name="delete_time" type="TIMESTAMP" remarks="Время удаления"/>
+            <column name="time_update" type="TIMESTAMP" remarks="Время удаления"/>
         </createTable>
 
     </changeSet>

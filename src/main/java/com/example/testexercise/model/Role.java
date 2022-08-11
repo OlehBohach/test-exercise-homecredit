@@ -1,9 +1,9 @@
 package com.example.testexercise.model;
 
+import com.example.testexercise.model.superclasses.BaseEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

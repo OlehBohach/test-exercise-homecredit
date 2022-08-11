@@ -1,5 +1,8 @@
 app:
+  basePath: /home/bogachoi/storage
   default-schema: public
+  usersDirName: users
+  delimiter: .
 spring:
   jpa:
     open-in-view: false

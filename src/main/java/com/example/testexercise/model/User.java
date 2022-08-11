@@ -1,19 +1,17 @@
 package com.example.testexercise.model;
 
+import com.example.testexercise.model.superclasses.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -25,12 +23,11 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 public class User extends BaseEntity {
     private String name;
+    private String idMedia;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(
-            name = "user_role",
-            joinColumns = @JoinColumn(name = "id_user", updatable = false, insertable = false),
-            inverseJoinColumns = @JoinColumn(name = "id_role", updatable = false, insertable = false)
-    )
-    private List<Role> roles;
+    @OneToMany
+    @JoinColumn(name = "id_user")
+    private List<UserRole> userRoles;
+
+    private LocalDateTime timeDelete;
 }
