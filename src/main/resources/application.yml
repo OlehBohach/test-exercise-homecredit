@@ -1,5 +1,5 @@
 app:
-  basePath: /home/bogachoi/storage
+  basePath:
   default-schema: public
   usersDirName: users
   delimiter: .
