@@ -1,4 +1,4 @@
-package com.example.testexercise.model;
+package com.example.testexercise.model.superclasses;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

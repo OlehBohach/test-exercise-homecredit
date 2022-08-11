@@ -10,7 +10,9 @@
             <column name="name" type="VARCHAR(30)" remarks="Имя пользователя">
                 <constraints nullable="false"/>
             </column>
+            <column name="id_media" type="VARCHAR(128)" remarks="Идентификатор аватара пользователя">
+                <constraints foreignKeyName="media.id.user.id_media.fk" references="media(id)"/>
+            </column>
         </createTable>
-
     </changeSet>
 </databaseChangeLog>

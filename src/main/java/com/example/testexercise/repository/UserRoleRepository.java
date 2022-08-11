@@ -7,5 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface UserRoleRepository extends JpaRepository<UserRole, UserRoleId> {
-    List<UserRole> findAllByRoleName(String roleName);
+    List<UserRole> findAllByIdRole(String roleName);
+
+    List<UserRole> findAllByIdUser(String id);
+
+    void deleteAllByIdUser(String userId);
 }

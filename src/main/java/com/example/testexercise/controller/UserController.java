@@ -1,10 +1,11 @@
 package com.example.testexercise.controller;
 
+import com.example.testexercise.dto.FileCreateDto;
 import com.example.testexercise.dto.UserDto;
-import com.example.testexercise.model.User;
 import com.example.testexercise.model.UserView;
 import com.example.testexercise.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/admins")
-    public List<User> findAdmins() {
+    public List<UserDto> findAdmins() {
         return userService.findAllAdmins();
     }
 
@@ -44,8 +45,13 @@ public class UserController {
     }
 
     @PostMapping("/{userId}/image")
+    @SneakyThrows
     public void changeUserAvatar(@PathVariable String userId, @RequestPart("file") MultipartFile file) {
-        userService.updateUserAvatar(userId, file);
+        userService.updateUserAvatar(FileCreateDto.builder()
+                .content(file.getInputStream())
+                .idUser(userId)
+                .name(file.getResource().getFilename())
+                .build());
     }
 
     @DeleteMapping("/hard/{userId}")
@@ -53,8 +59,4 @@ public class UserController {
         userService.deleteUserByIdHard(userId);
     }
 
-    @DeleteMapping("/soft/{userId}")
-    public void deleteUserByIdSoft(@PathVariable String userId) {
-        userService.deleteUserByIdSoft(userId);
-    }
 }
