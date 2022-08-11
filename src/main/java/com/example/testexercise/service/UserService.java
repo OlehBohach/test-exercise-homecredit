@@ -42,7 +42,8 @@ public class UserService {
         Role role = roleService.findByName("ADMIN");
         List<UserRole> userRoles = userRoleService.findAllById(role.getId());
         List<User> users = userRepository.findAllById(userRoles.stream().map(UserRole::getIdUser).collect(Collectors.toList()));
-        return users.stream().map(userMapper::toUserDto).collect(Collectors.toList());
+        List<UserDto> userDtos = users.stream().map(userMapper::toUserDto).collect(Collectors.toList());
+        return userDtos;
     }
 
     public void createUser(UserDto userDto) {

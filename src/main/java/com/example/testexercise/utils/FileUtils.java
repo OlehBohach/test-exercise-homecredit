@@ -1,5 +1,6 @@
 package com.example.testexercise.utils;
 
+import com.example.testexercise.model.Media;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
 
@@ -38,6 +39,11 @@ public class FileUtils {
             StreamUtils.writeToOutputStream(content, outputStream);
         }
         return file.toPath();
+    }
+
+    @SneakyThrows
+    public byte[] getFileContent(Media media) {
+        return Files.readAllBytes(Paths.get(media.getPath()));
     }
 
     @SneakyThrows

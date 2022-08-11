@@ -4,5 +4,6 @@
     <changeSet id="db population" author="obhohach">
         <loadData tableName="user" file="liquibase/v_1.0/populate/user.csv" separator=";"/>
         <loadData tableName="role" file="liquibase/v_1.0/populate/role.csv" separator=";"/>
+        <loadData tableName="user_role" file="liquibase/v_1.0/populate/user-role.csv" separator=";"/>
     </changeSet>
 </databaseChangeLog>

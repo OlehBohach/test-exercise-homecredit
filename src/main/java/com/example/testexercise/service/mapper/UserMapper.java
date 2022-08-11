@@ -7,14 +7,16 @@ import com.example.testexercise.model.UserRole;
 import com.example.testexercise.repository.RoleRepository;
 import com.example.testexercise.repository.UserRoleRepository;
 import org.mapstruct.AfterMapping;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {MediaMapper.class}, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public abstract class UserMapper {
 
     @Autowired

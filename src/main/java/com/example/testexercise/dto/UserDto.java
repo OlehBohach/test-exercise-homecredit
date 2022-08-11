@@ -9,4 +9,5 @@ public class UserDto {
     private String id;
     private String name;
     private List<String> roleNames;
+    private MediaDto media;
 }
